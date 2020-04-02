@@ -77,7 +77,7 @@ func newMeasurement(f float64, unit string) (Measurement, error) {
 }
 
 func printMeasurement(s string) {
-	re := regexp.MustCompile(`(-?\d+(?:\.\d+)?)([A-Za-z]+)`)
+	re := regexp.MustCompile(`(-?\d+(?:\.\d+)?)([A-Za-z]+)`)  // ?:的意思是 Non-capturing group
 	match := re.FindStringSubmatch(s)
 	if match == nil {
 		log.Fatalf("Expecting <number><unit>, got %q", s)
