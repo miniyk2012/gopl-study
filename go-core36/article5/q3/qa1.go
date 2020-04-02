@@ -1,15 +1,17 @@
 package main
 
 import (
-	. "fmt"
+	. "flag"
+	"fmt"
 )
 
-
-//func Print(a int)  {
-//
-//}
+//var ErrHelp = 4
 
 
 func main() {
-	Print("a")
+	fmt.Println(ErrHelp)
+	{
+		ErrHelp := 6
+		fmt.Println(ErrHelp)
+	}
 }
