@@ -6,8 +6,6 @@ import (
 )
 
 //var ErrHelp = 4
-
-
 func main() {
 	fmt.Println(ErrHelp)
 	{
