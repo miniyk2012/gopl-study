@@ -12,10 +12,17 @@ import (
 	"os"
 	"strconv"
 
+	"gopl.io/ch2/popcount"
 	"gopl.io/ch2/tempconv"
 )
 
+var b = a + 1
+var a = 10
+func init() {fmt.Println(1)}
+func init() {fmt.Println(2)}
+
 func main() {
+	fmt.Println(b)
 	for _, arg := range os.Args[1:] {
 		t, err := strconv.ParseFloat(arg, 64)
 		if err != nil {
@@ -30,6 +37,10 @@ func main() {
 		fmt.Printf("%s = %s, %s = %s\n",
 			k, tempconv.KToC(k), c, tempconv.CToK(c))
 	}
+	fmt.Println(byte(0xff>>(0*8)))
+	fmt.Println(popcount.PopCount(0xff))
 }
+func init() {fmt.Println(3)}
+
 
 //!-
