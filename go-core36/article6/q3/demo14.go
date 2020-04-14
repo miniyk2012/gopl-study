@@ -61,5 +61,7 @@ func main() {
 		//myStr2 = str // 这里的赋值不合法，会引发编译错误。
 		//myStr1 = myStr2 // 这里的赋值不合法，会引发编译错误。
 		//myStr2 = myStr1 // 这里的赋值不合法，会引发编译错误。
+		fmt.Printf("myStr1 %T(%q)\n", myStr1, myStr1)
+		fmt.Printf("myStr2 %T(%q)\n", myStr2, myStr2)
 	}
 }

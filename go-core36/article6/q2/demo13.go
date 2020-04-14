@@ -28,6 +28,7 @@ func main() {
 	fmt.Printf("The string: %q\n", srcStr)
 	fmt.Printf("The hex of %q: %x\n", srcStr, srcStr)
 	fmt.Printf("The byte slice of %q: % x\n", srcStr, []byte(srcStr))
+	fmt.Printf("The byte slice2 of %q: %s\n", srcStr, string([]byte(srcStr)))
 	fmt.Printf("The string: %q\n", string([]byte{'\xe4', '\xbd', '\xa0', '\xe5', '\xa5', '\xbd'}))
 	fmt.Printf("The rune slice of %q: %U\n", srcStr, []rune(srcStr))
 	fmt.Printf("The string: %q\n", string([]rune{'\u4F60', '\u597D'}))
