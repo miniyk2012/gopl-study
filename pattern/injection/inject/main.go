@@ -60,6 +60,7 @@ func main() {
 	a := &A{Name: "inject name"}
 	m := macaron.Classic()
 	m.Map(a)
+	// 在func(a *A)中a根据类型自动被注入了
 	m.Get("/", func(a *A) string {
 		return "Hello world!" + a.Name
 	})
@@ -67,6 +68,7 @@ func main() {
 }
 
 func InjectDemo() {
+	// 其实类似spring的根据类型, 名称做依赖注入
 	a := A{Name: "a name"}
 	inject1 := inject.New()
 	inject1.Map(a)
@@ -78,14 +80,23 @@ func InjectDemo() {
 		fmt.Println(arg3)
 	})
 	fmt.Println()
+
+	// 通过注解做依赖注入
 	c := C{}
 	inject1.Apply(&c)
 	fmt.Println(c.AStruct.Name)
 	fmt.Println()
+
+	// 获取容器中的对象
+	x := inject1.GetVal(reflect.TypeOf(A{}))
+	fmt.Printf("x(%T)=%[1]v, %T=%[2]v \n", x, x.Interface())
+	fmt.Println()
+
 	inject2 := inject.New()
 	inject2.Map(a)
 	inject2.MapTo(&B{Name: "b name"}, (*I)(nil))
 	inject2.Set(reflect.TypeOf("string"), reflect.ValueOf("c name"))
+	// fastInvoke, 无须反射调用
 	ret, _ := inject2.Invoke(MyFastInvoker(nil))  // 这里只是一个强转罢了, 把nil转换为MyFastInvoker
 	fmt.Println(ret)
 	
