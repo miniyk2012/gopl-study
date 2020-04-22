@@ -83,4 +83,9 @@ func RingDemo() {
 	rs.Do(func(p interface{}) {
 		fmt.Println(p.(int))
 	})
+	println()
+	var r1 ring.Ring
+	fmt.Println(r1.Len())
+	fmt.Println(r1.Value)
 }
+
