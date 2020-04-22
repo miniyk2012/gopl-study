@@ -5,7 +5,8 @@ import "fmt"
 func main() {
 	var m map[string]int
 	//var m = make(map[string]int)
-	key := "two"
+	var key string = "111"
+	
 	elem, ok := m["two"]
 	fmt.Printf("m == nil (%t)\n", nil == m)
 	fmt.Printf("The element paired with key %q in nil map: %d (%v)\n",
