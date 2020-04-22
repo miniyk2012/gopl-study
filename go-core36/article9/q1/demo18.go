@@ -72,6 +72,9 @@ func main() {
 	if v, ok := goodMap6[b2]; ok {
 		fmt.Println(v)
 	}
+	if v, ok := goodMap6[b2]; ok {
+		fmt.Println(v)
+	}
 	if v, ok := goodMap7[z]; ok {
 		fmt.Println(v)
 	}
