@@ -37,10 +37,10 @@ func main() {
 	type BadKey2 struct {
 		field BadKey2Field1
 	}
-	var goodMap6 = make(map[BadKey2]int, 0)
+	var goodMap6 = make(map[BadKey2]int, 3)
 	_ = goodMap6
 
-	var goodMap7 = make(map[*BadKey2]int, 0)
+	var goodMap7 = make(map[*BadKey2]int, 3)
 	_ = goodMap7
 	fmt.Println(len(goodMap7))
 	b1 := BadKey2{BadKey2Field1{[...]string{"1", "2"}}}
@@ -67,10 +67,10 @@ func main() {
 	fmt.Println(goodMap6)
 	fmt.Println(goodMap7)
 	if v, ok := goodMap6[b1]; ok {
-		fmt.Println(v)
+		fmt.Println(v)  // 不打印
 	}
 	if v, ok := goodMap6[b2]; ok {
-		fmt.Println(v)
+		fmt.Println(v)  // 打印, 因此map里真存了一个BadKey2
 	}
 	if v, ok := goodMap6[b2]; ok {
 		fmt.Println(v)
