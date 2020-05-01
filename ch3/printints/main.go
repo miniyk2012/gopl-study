@@ -15,7 +15,8 @@ import (
 // intsToString is like fmt.Sprint(values) but adds commas.
 func intsToString(values []int) string {
 	var buf bytes.Buffer
-	buf.WriteByte('[')
+	buf.WriteByte('b')
+	buf.Write([]byte{65, 66})
 	for i, v := range values {
 		if i > 0 {
 			buf.WriteString(", ")

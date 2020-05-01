@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	"unicode/utf8"
 )
 
@@ -42,4 +43,9 @@ Usage:
 	fmt.Printf("%s\n", string(r1))
 
 	fmt.Println(string(1234567)) // "?"
+
+	fmt.Println(strings.Count("afsdafad", "af"))
+	fmt.Println(strings.Fields("adf afs"))
+	fmt.Println(strings.Fields(""))
+	fmt.Println(strings.Join([]string{"afd", "dff"}, " "))
 }
