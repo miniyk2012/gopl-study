@@ -11,6 +11,9 @@ import "fmt"
 //!+
 import "crypto/sha256"
 
+func zero(ptr *[32]byte) {
+	*ptr = [32]byte{}
+}
 func main() {
 	c1 := sha256.Sum256([]byte("x"))
 	c2 := sha256.Sum256([]byte("X"))
@@ -20,6 +23,9 @@ func main() {
 	// 4b68ab3847feda7d6c62c1fbcbeebfa35eab7351ed5e78f4ddadea5df64b8015
 	// false
 	// [32]uint8
+	fmt.Printf("%x\n", c1)
+	zero(&c1)
+	fmt.Printf("%x\n", c1)
 }
 
 //!-
