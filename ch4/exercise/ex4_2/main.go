@@ -8,9 +8,18 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
+	"runtime/debug"
+	"time"
 )
 
+func handlePanic() {
+	if p := recover(); p != nil {
+		fmt.Printf("internal error: %v\n", p)
+		debug.PrintStack()  // 打印堆栈信息
+	}
+}
 func main() {
+	defer handlePanic()
 	var sumType = flag.String("checkSum", "SHA256", "加密")
 	b, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
@@ -30,7 +39,12 @@ func main() {
 		temp := sha512.Sum512(b)
 		c = temp[:]
 	default:
-		log.Fatal("Unexpected width specified.")
+		panic("Unexpected width specified.")
 	}
+	go func() {
+		defer handlePanic()
+		panic("in coroutine")
+	}()
+	time.Sleep(time.Second)
 	fmt.Printf("%x\n", c)
 }
