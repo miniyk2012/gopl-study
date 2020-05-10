@@ -28,9 +28,20 @@ func nonempty(strings []string) []string {
 func main() {
 	//!+main
 	data := []string{"one", "", "three"}
-	fmt.Printf("%q\n", nonempty(data)) // `["one" "three"]`
-	fmt.Printf("%q\n", data)           // `["one" "three" "three"]`
+	newData := nonempty(data)
+	fmt.Printf("%q %d\n", newData, len(newData)) // `["one" "three"]`
+	fmt.Printf("%q\n", data)                     // `["one" "three" "three"]`
 	//!-main
+
+	data2 := []string{"one", "", "three"}
+	newData2 := nonempty2(data2)
+	fmt.Printf("%q %d\n", newData2, len(newData2)) // `["one" "three"]`
+	fmt.Printf("%q\n", data2)                      // `["one" "three" "three"]`
+
+	// remove
+	s := []int{5, 6, 7, 8, 9}
+	s = remove(s, 2)
+	fmt.Printf("cap(s)=%d, len(s)=%d, s=%v\n", cap(s), len(s), s) // "cap(s)=5, len(s)=4, s=[5 6 8 9]"
 }
 
 //!+alt
@@ -45,3 +56,8 @@ func nonempty2(strings []string) []string {
 }
 
 //!-alt
+
+func remove(slice []int, i int) []int {
+	copy(slice[i:], slice[i+1:])
+	return slice[:len(slice)-1]
+}
