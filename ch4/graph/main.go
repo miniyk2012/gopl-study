@@ -27,6 +27,7 @@ func hasEdge(from, to string) bool {
 //!-
 
 func main() {
+	fmt.Println(graph["ax"]["xx"])
 	addEdge("a", "b")
 	addEdge("c", "d")
 	addEdge("a", "d")
@@ -36,7 +37,7 @@ func main() {
 	fmt.Println(hasEdge("a", "d"))
 	fmt.Println(hasEdge("d", "a"))
 	fmt.Println(hasEdge("x", "b"))
-	fmt.Println(hasEdge("c", "d"))
+	fmt.Println(hasEdge("c", "b"))
 	fmt.Println(hasEdge("x", "d"))
 	fmt.Println(hasEdge("d", "x"))
 

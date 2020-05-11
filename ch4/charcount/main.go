@@ -18,7 +18,7 @@ import (
 
 func main() {
 	counts := make(map[rune]int)    // counts of Unicode characters
-	var utflen [utf8.UTFMax + 1]int // count of lengths of UTF-8 encodings
+	var utflen [utf8.UTFMax + 1]int // count of lengths of UTF-8 encodings, 数组, 因为UTF-8编码的长度总是从1到utf8.UTFMax（最大是4个字节）
 	invalid := 0                    // count of invalid UTF-8 characters
 
 	in := bufio.NewReader(os.Stdin)

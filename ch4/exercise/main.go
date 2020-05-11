@@ -53,8 +53,23 @@ func appendDemo() {
 	//}
 	fmt.Printf("%q\n", runes) // "['H' 'e' 'l' 'l' 'o' ',' ' ' '世' '界']"
 }
+
+var m = make(map[string]int)
+func k(list []string) string { return fmt.Sprintf("%q", list) }
+func Add(list []string)       { m[k(list)]++ }
+func Count(list []string) int { return m[k(list)] }
+
+func mapDemo() {
+	a := []string{"12", "56"}
+	Add(a)
+	Add(a)
+	Add(a)
+	fmt.Println(m)
+	Count(a)
+}
 func main() {
 	//test()
 	//appendDemo()
-	testMap()
+	//testMap()
+	mapDemo()
 }
