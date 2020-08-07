@@ -27,4 +27,5 @@ func main() {
 	s := []byte("a  abbb fdsa眼   科  ")
 	got := replaceSpace(s)
 	fmt.Println(string(got))
+
 }
