@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"runtime/debug"
 	"sort"
+	"time"
 )
 
 func funcA() (err error) {
@@ -100,11 +101,47 @@ func sortMap() {
 
 }
 
+type Employee struct {
+	ID        int
+	Name      string
+	Address   string
+	DoB       time.Time
+	Position  string
+	Salary    int
+	ManagerID int
+}
+
+func EmployeeByID(id int) *Employee {
+	return &Employee{}
+	/* ... */
+}
+
+type address struct {
+	hostname string
+	port     int
+}
+
+
+
+func structDemo() {
+	hits := make(map[address]int)
+	hits[address{"golang.org", 443}]++
+	fmt.Printf("%v\n", hits)
+}
+
 func main() {
 	//test()
 	//appendDemo()
 	//testMap()
 	//mapDemo()
 	//capSlice()
-	sortMap()
+	//sortMap()
+	var dilbert Employee
+	dilbert.Name = "yangk"
+	dilbert.Salary -= 5000
+	fmt.Println(dilbert)
+	fmt.Println(EmployeeByID(dilbert.ManagerID).Position) // "Pointy-haired boss"
+	id := dilbert.ID
+	EmployeeByID(id).Salary = 0 // fired for... no real reason
+	structDemo()
 }
